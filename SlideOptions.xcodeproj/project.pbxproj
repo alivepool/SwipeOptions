@@ -9,12 +9,17 @@
 /* Begin PBXBuildFile section */
 		9D622C432443107700253686 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D622C422443107700253686 /* AppDelegate.swift */; };
 		9D622C452443107700253686 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D622C442443107700253686 /* SceneDelegate.swift */; };
-		9D622C472443107700253686 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D622C462443107700253686 /* ViewController.swift */; };
+		9D622C472443107700253686 /* ListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D622C462443107700253686 /* ListCollectionViewController.swift */; };
 		9D622C4A2443107700253686 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D622C482443107700253686 /* Main.storyboard */; };
 		9D622C4C2443107A00253686 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D622C4B2443107A00253686 /* Assets.xcassets */; };
 		9D622C4F2443107A00253686 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D622C4D2443107A00253686 /* LaunchScreen.storyboard */; };
 		9D622C5A2443107B00253686 /* SlideOptionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D622C592443107B00253686 /* SlideOptionsTests.swift */; };
 		9D622C652443107B00253686 /* SlideOptionsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D622C642443107B00253686 /* SlideOptionsUITests.swift */; };
+		9D622CA0244310DD00253686 /* SlideOptionsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D622C9C244310AE00253686 /* SlideOptionsKit.framework */; };
+		9D622CA1244310DD00253686 /* SlideOptionsKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D622C9C244310AE00253686 /* SlideOptionsKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9D622CA42445AF7B00253686 /* ExampleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D622CA32445AF7B00253686 /* ExampleCollectionViewController.swift */; };
+		9D622CA62445B44800253686 /* ExampleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D622CA52445B44800253686 /* ExampleCollectionViewCell.swift */; };
+		9D622CA82445CC2B00253686 /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D622CA72445CC2B00253686 /* UtilityExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,13 +37,41 @@
 			remoteGlobalIDString = 9D622C3E2443107700253686;
 			remoteInfo = SlideOptions;
 		};
+		9D622C9B244310AE00253686 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D622C96244310AE00253686 /* SlideOptionsKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9D622C7C244310AD00253686;
+			remoteInfo = SlideOptionsKit;
+		};
+		9D622C9D244310AE00253686 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D622C96244310AE00253686 /* SlideOptionsKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9D622C85244310AE00253686;
+			remoteInfo = SlideOptionsKitTests;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9D622CA2244310DD00253686 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9D622CA1244310DD00253686 /* SlideOptionsKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9D622C3F2443107700253686 /* SlideOptions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlideOptions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D622C422443107700253686 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D622C442443107700253686 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9D622C462443107700253686 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9D622C462443107700253686 /* ListCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionViewController.swift; sourceTree = "<group>"; };
 		9D622C492443107700253686 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9D622C4B2443107A00253686 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D622C4E2443107A00253686 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +82,10 @@
 		9D622C602443107B00253686 /* SlideOptionsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlideOptionsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D622C642443107B00253686 /* SlideOptionsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOptionsUITests.swift; sourceTree = "<group>"; };
 		9D622C662443107B00253686 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D622C96244310AE00253686 /* SlideOptionsKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SlideOptionsKit.xcodeproj; path = SlideOptionsKit/SlideOptionsKit.xcodeproj; sourceTree = "<group>"; };
+		9D622CA32445AF7B00253686 /* ExampleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleCollectionViewController.swift; sourceTree = "<group>"; };
+		9D622CA52445B44800253686 /* ExampleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleCollectionViewCell.swift; sourceTree = "<group>"; };
+		9D622CA72445CC2B00253686 /* UtilityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D622CA0244310DD00253686 /* SlideOptionsKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +121,8 @@
 				9D622C582443107B00253686 /* SlideOptionsTests */,
 				9D622C632443107B00253686 /* SlideOptionsUITests */,
 				9D622C402443107700253686 /* Products */,
+				9D622C96244310AE00253686 /* SlideOptionsKit.xcodeproj */,
+				9D622C9F244310DD00253686 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,11 +141,14 @@
 			children = (
 				9D622C422443107700253686 /* AppDelegate.swift */,
 				9D622C442443107700253686 /* SceneDelegate.swift */,
-				9D622C462443107700253686 /* ViewController.swift */,
+				9D622C462443107700253686 /* ListCollectionViewController.swift */,
+				9D622CA32445AF7B00253686 /* ExampleCollectionViewController.swift */,
+				9D622CA52445B44800253686 /* ExampleCollectionViewCell.swift */,
 				9D622C482443107700253686 /* Main.storyboard */,
 				9D622C4B2443107A00253686 /* Assets.xcassets */,
 				9D622C4D2443107A00253686 /* LaunchScreen.storyboard */,
 				9D622C502443107A00253686 /* Info.plist */,
+				9D622CA72445CC2B00253686 /* UtilityExtensions.swift */,
 			);
 			path = SlideOptions;
 			sourceTree = "<group>";
@@ -128,6 +171,22 @@
 			path = SlideOptionsUITests;
 			sourceTree = "<group>";
 		};
+		9D622C97244310AE00253686 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9D622C9C244310AE00253686 /* SlideOptionsKit.framework */,
+				9D622C9E244310AE00253686 /* SlideOptionsKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9D622C9F244310DD00253686 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,6 +197,7 @@
 				9D622C3B2443107700253686 /* Sources */,
 				9D622C3C2443107700253686 /* Frameworks */,
 				9D622C3D2443107700253686 /* Resources */,
+				9D622CA2244310DD00253686 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -218,6 +278,12 @@
 			mainGroup = 9D622C362443107700253686;
 			productRefGroup = 9D622C402443107700253686 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9D622C97244310AE00253686 /* Products */;
+					ProjectRef = 9D622C96244310AE00253686 /* SlideOptionsKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				9D622C3E2443107700253686 /* SlideOptions */,
@@ -226,6 +292,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9D622C9C244310AE00253686 /* SlideOptionsKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SlideOptionsKit.framework;
+			remoteRef = 9D622C9B244310AE00253686 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9D622C9E244310AE00253686 /* SlideOptionsKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SlideOptionsKitTests.xctest;
+			remoteRef = 9D622C9D244310AE00253686 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		9D622C3D2443107700253686 /* Resources */ = {
@@ -259,8 +342,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D622C472443107700253686 /* ViewController.swift in Sources */,
+				9D622C472443107700253686 /* ListCollectionViewController.swift in Sources */,
 				9D622C432443107700253686 /* AppDelegate.swift in Sources */,
+				9D622CA82445CC2B00253686 /* UtilityExtensions.swift in Sources */,
+				9D622CA62445B44800253686 /* ExampleCollectionViewCell.swift in Sources */,
+				9D622CA42445AF7B00253686 /* ExampleCollectionViewController.swift in Sources */,
 				9D622C452443107700253686 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
