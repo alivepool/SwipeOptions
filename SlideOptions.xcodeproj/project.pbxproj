@@ -20,6 +20,8 @@
 		9D622CA42445AF7B00253686 /* ExampleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D622CA32445AF7B00253686 /* ExampleCollectionViewController.swift */; };
 		9D622CA62445B44800253686 /* ExampleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D622CA52445B44800253686 /* ExampleCollectionViewCell.swift */; };
 		9D622CA82445CC2B00253686 /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D622CA72445CC2B00253686 /* UtilityExtensions.swift */; };
+		9D622CAA2448423D00253686 /* SwipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D622CA92448423D00253686 /* SwipeController.swift */; };
+		9D622CAC244870B600253686 /* SwipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D622CAB244870B600253686 /* SwipeCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +88,8 @@
 		9D622CA32445AF7B00253686 /* ExampleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleCollectionViewController.swift; sourceTree = "<group>"; };
 		9D622CA52445B44800253686 /* ExampleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleCollectionViewCell.swift; sourceTree = "<group>"; };
 		9D622CA72445CC2B00253686 /* UtilityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityExtensions.swift; sourceTree = "<group>"; };
+		9D622CA92448423D00253686 /* SwipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeController.swift; sourceTree = "<group>"; };
+		9D622CAB244870B600253686 /* SwipeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,11 +148,13 @@
 				9D622C462443107700253686 /* ListCollectionViewController.swift */,
 				9D622CA32445AF7B00253686 /* ExampleCollectionViewController.swift */,
 				9D622CA52445B44800253686 /* ExampleCollectionViewCell.swift */,
+				9D622CAB244870B600253686 /* SwipeCollectionViewCell.swift */,
+				9D622CA92448423D00253686 /* SwipeController.swift */,
+				9D622CA72445CC2B00253686 /* UtilityExtensions.swift */,
 				9D622C482443107700253686 /* Main.storyboard */,
 				9D622C4B2443107A00253686 /* Assets.xcassets */,
 				9D622C4D2443107A00253686 /* LaunchScreen.storyboard */,
 				9D622C502443107A00253686 /* Info.plist */,
-				9D622CA72445CC2B00253686 /* UtilityExtensions.swift */,
 			);
 			path = SlideOptions;
 			sourceTree = "<group>";
@@ -343,11 +349,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D622C472443107700253686 /* ListCollectionViewController.swift in Sources */,
+				9D622CAA2448423D00253686 /* SwipeController.swift in Sources */,
 				9D622C432443107700253686 /* AppDelegate.swift in Sources */,
 				9D622CA82445CC2B00253686 /* UtilityExtensions.swift in Sources */,
 				9D622CA62445B44800253686 /* ExampleCollectionViewCell.swift in Sources */,
 				9D622CA42445AF7B00253686 /* ExampleCollectionViewController.swift in Sources */,
 				9D622C452443107700253686 /* SceneDelegate.swift in Sources */,
+				9D622CAC244870B600253686 /* SwipeCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

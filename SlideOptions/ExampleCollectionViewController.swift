@@ -55,8 +55,7 @@ class ExampleCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ExampleCollectionViewCell
         cell.titleLabel.text = titleArray[indexPath.row]
         cell.descriptionLabel.text = descriptionText
-        cell.collectionView = collectionView
-        
+        cell.actionsProvider = collectionView as? SwipeActionsProvider
         return cell
     }
 
@@ -96,5 +95,11 @@ class ExampleCollectionViewController: UICollectionViewController {
 extension ExampleCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width - 20, height: 100)
+    }
+}
+
+extension ExampleCollectionViewController: SwipeActionsProvider {
+    func tableView(_ collectionView: UICollectionView, swipeActionConfigurationForRowAt indexPath: IndexPath) -> [SwipeActionConfiguration]? {
+        nil
     }
 }
