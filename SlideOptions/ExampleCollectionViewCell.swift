@@ -6,6 +6,7 @@
 //  Copyright © 2020 Ameya. All rights reserved.
 //
 
+import SlideOptionsKit
 import UIKit
 
 class ExampleCollectionViewCell: SwipeCollectionViewCell {

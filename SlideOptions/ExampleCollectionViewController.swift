@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SlideOptionsKit
 
 private let reuseIdentifier = "ExampleCollectionCell"
 private let titleArray = ["AAAA", "BBBB", "CCCC", "DDDD", "EEEE", "FFFF", "GGGG", "HHHH", "IIII", "JJJJ"]
@@ -18,25 +19,7 @@ class ExampleCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-//        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     // MARK: UICollectionViewDataSource
 
@@ -55,40 +38,12 @@ class ExampleCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ExampleCollectionViewCell
         cell.titleLabel.text = titleArray[indexPath.row]
         cell.descriptionLabel.text = descriptionText
-        cell.actionsProvider = collectionView as? SwipeActionsProvider
+        cell.actionsProvider = self
+        cell.collectionView = collectionView
+        cell.indexPath = indexPath
         return cell
     }
 
-    // MARK: UICollectionViewDelegate
-    
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
 
 }
 
@@ -98,8 +53,39 @@ extension ExampleCollectionViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension ExampleCollectionViewController: SwipeActionsProvider {
-    func tableView(_ collectionView: UICollectionView, swipeActionConfigurationForRowAt indexPath: IndexPath) -> [SwipeActionConfiguration]? {
-        nil
+extension ExampleCollectionViewController: SwipeCollectionViewCellDelegate {
+    func collectionView(_ collectionView: UICollectionView, swipeActionConfigurationForRowAt indexPath: IndexPath) -> [SwipeActionConfiguration]? {
+        
+        var actionConfigOne = SwipeActionConfiguration()
+        actionConfigOne.handler = {[weak self] configuration, indexPath in
+            self?.oneTapped()
+        }
+        actionConfigOne.title = "One"
+        
+        var actionConfigTwo = SwipeActionConfiguration()
+        actionConfigTwo.handler = {[weak self] configuration, indexPath in
+            self?.twoTapped()
+        }
+        actionConfigTwo.title = "Two"
+        
+        var actionConfigThree = SwipeActionConfiguration()
+        actionConfigThree.handler = {[weak self] configuration, indexPath in
+            self?.threeTapped()
+        }
+        actionConfigThree.title = "Three"
+        
+        return [actionConfigOne, actionConfigTwo, actionConfigThree]
+    }
+    
+    func oneTapped() {
+        print("One tapped")
+    }
+    
+    func twoTapped() {
+        print("Two tapped")
+    }
+    
+    func threeTapped() {
+        print("Three tapped")
     }
 }

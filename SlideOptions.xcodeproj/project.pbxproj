@@ -15,13 +15,9 @@
 		9D622C4F2443107A00253686 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D622C4D2443107A00253686 /* LaunchScreen.storyboard */; };
 		9D622C5A2443107B00253686 /* SlideOptionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D622C592443107B00253686 /* SlideOptionsTests.swift */; };
 		9D622C652443107B00253686 /* SlideOptionsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D622C642443107B00253686 /* SlideOptionsUITests.swift */; };
-		9D622CA0244310DD00253686 /* SlideOptionsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D622C9C244310AE00253686 /* SlideOptionsKit.framework */; };
-		9D622CA1244310DD00253686 /* SlideOptionsKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D622C9C244310AE00253686 /* SlideOptionsKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9D622CA42445AF7B00253686 /* ExampleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D622CA32445AF7B00253686 /* ExampleCollectionViewController.swift */; };
 		9D622CA62445B44800253686 /* ExampleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D622CA52445B44800253686 /* ExampleCollectionViewCell.swift */; };
-		9D622CA82445CC2B00253686 /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D622CA72445CC2B00253686 /* UtilityExtensions.swift */; };
-		9D622CAA2448423D00253686 /* SwipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D622CA92448423D00253686 /* SwipeController.swift */; };
-		9D622CAC244870B600253686 /* SwipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D622CAB244870B600253686 /* SwipeCollectionViewCell.swift */; };
+		9D622CB52448745100253686 /* SlideOptionsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D622C9C244310AE00253686 /* SlideOptionsKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,21 +49,14 @@
 			remoteGlobalIDString = 9D622C85244310AE00253686;
 			remoteInfo = SlideOptionsKitTests;
 		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		9D622CA2244310DD00253686 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				9D622CA1244310DD00253686 /* SlideOptionsKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
+		9D622CB3244872CD00253686 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D622C96244310AE00253686 /* SlideOptionsKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9D622C7B244310AD00253686;
+			remoteInfo = SlideOptionsKit;
 		};
-/* End PBXCopyFilesBuildPhase section */
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		9D622C3F2443107700253686 /* SlideOptions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlideOptions.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,9 +76,6 @@
 		9D622C96244310AE00253686 /* SlideOptionsKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SlideOptionsKit.xcodeproj; path = SlideOptionsKit/SlideOptionsKit.xcodeproj; sourceTree = "<group>"; };
 		9D622CA32445AF7B00253686 /* ExampleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleCollectionViewController.swift; sourceTree = "<group>"; };
 		9D622CA52445B44800253686 /* ExampleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleCollectionViewCell.swift; sourceTree = "<group>"; };
-		9D622CA72445CC2B00253686 /* UtilityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityExtensions.swift; sourceTree = "<group>"; };
-		9D622CA92448423D00253686 /* SwipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeController.swift; sourceTree = "<group>"; };
-		9D622CAB244870B600253686 /* SwipeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D622CA0244310DD00253686 /* SlideOptionsKit.framework in Frameworks */,
+				9D622CB52448745100253686 /* SlideOptionsKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,9 +134,6 @@
 				9D622C462443107700253686 /* ListCollectionViewController.swift */,
 				9D622CA32445AF7B00253686 /* ExampleCollectionViewController.swift */,
 				9D622CA52445B44800253686 /* ExampleCollectionViewCell.swift */,
-				9D622CAB244870B600253686 /* SwipeCollectionViewCell.swift */,
-				9D622CA92448423D00253686 /* SwipeController.swift */,
-				9D622CA72445CC2B00253686 /* UtilityExtensions.swift */,
 				9D622C482443107700253686 /* Main.storyboard */,
 				9D622C4B2443107A00253686 /* Assets.xcassets */,
 				9D622C4D2443107A00253686 /* LaunchScreen.storyboard */,
@@ -203,11 +186,11 @@
 				9D622C3B2443107700253686 /* Sources */,
 				9D622C3C2443107700253686 /* Frameworks */,
 				9D622C3D2443107700253686 /* Resources */,
-				9D622CA2244310DD00253686 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9D622CB4244872CD00253686 /* PBXTargetDependency */,
 			);
 			name = SlideOptions;
 			productName = SlideOptions;
@@ -349,13 +332,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D622C472443107700253686 /* ListCollectionViewController.swift in Sources */,
-				9D622CAA2448423D00253686 /* SwipeController.swift in Sources */,
 				9D622C432443107700253686 /* AppDelegate.swift in Sources */,
-				9D622CA82445CC2B00253686 /* UtilityExtensions.swift in Sources */,
 				9D622CA62445B44800253686 /* ExampleCollectionViewCell.swift in Sources */,
 				9D622CA42445AF7B00253686 /* ExampleCollectionViewController.swift in Sources */,
 				9D622C452443107700253686 /* SceneDelegate.swift in Sources */,
-				9D622CAC244870B600253686 /* SwipeCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +367,11 @@
 			isa = PBXTargetDependency;
 			target = 9D622C3E2443107700253686 /* SlideOptions */;
 			targetProxy = 9D622C612443107B00253686 /* PBXContainerItemProxy */;
+		};
+		9D622CB4244872CD00253686 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SlideOptionsKit;
+			targetProxy = 9D622CB3244872CD00253686 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -530,6 +515,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SlideOptions/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -547,6 +533,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SlideOptions/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
