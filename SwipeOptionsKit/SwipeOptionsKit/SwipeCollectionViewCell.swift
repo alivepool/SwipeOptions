@@ -32,14 +32,21 @@ open class SwipeCollectionViewCell: UICollectionViewCell {
         configureCell()
     }
     
-    func configureCell() {
+    private func configureCell() {
         swipeController = SwipeController(containerView: self, swipeView: contentView)
         swipeController?.actionsProvider = self
     }
     
-    public func hideSwipableCellActions(animated: Bool) {
+    func hideSwipableCellActions(animated: Bool) {
         swipeController?.hideActions(animated: animated)
     }
+    
+    public func hintSwipeAction() {
+        swipeController?.showActions(animated: true, mode: .right) { [weak self] in
+            self?.swipeController?.hideActions(animated: true)
+        }
+    }
+    
 }
 
 extension SwipeCollectionViewCell: SwipeActionsProvider {

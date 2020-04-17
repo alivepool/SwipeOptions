@@ -17,8 +17,19 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 class ExampleCollectionViewController: UICollectionViewController {
 
+    
+    private var hintCell: ExampleCollectionViewCell?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.collectionView.reloadData()
+        self.collectionView.performBatchUpdates(nil, completion: {[weak self]
+            (result) in
+            self?.hintCell?.hintSwipeAction()
+        })
     }
 
     // MARK: UICollectionViewDataSource
@@ -35,7 +46,11 @@ class ExampleCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ExampleCollectionViewCell
+        if indexPath.row == 0 {
+            hintCell = cell
+        }
         cell.titleLabel.text = titleArray[indexPath.row]
         cell.descriptionLabel.text = descriptionText
         cell.actionsProvider = self
@@ -78,7 +93,7 @@ extension ExampleCollectionViewController: SwipeCollectionViewCellDelegate {
     }
     
     func oneTapped() {
-//        print("One tapped")
+        print("One tapped")
         showAlert(message: "One tapped")
     }
     

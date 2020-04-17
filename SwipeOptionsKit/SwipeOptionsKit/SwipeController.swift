@@ -41,7 +41,7 @@ public protocol SwipeControllerType {
     
     init(containerView: UIView, swipeView: UIView)
     
-    func showActions(animated: Bool, mode: SwipeActionsViewMode)
+    func showActions(animated: Bool, mode: SwipeActionsViewMode, completion:(()->Void)?)
     func hideActions(animated: Bool)
     
 }
@@ -93,7 +93,7 @@ public class SwipeController: NSObject, SwipeControllerType {
     private func configureUI() {
         orignalContentLocationX = swipeView.frame.origin.x
         actionsContainerView.translatesAutoresizingMaskIntoConstraints = false
-        actionsContainerView.backgroundColor = .red
+        actionsContainerView.backgroundColor = .white
         containerView.insertSubview(actionsContainerView, belowSubview: swipeView)
         
         actionsStackView.axis = .vertical
@@ -239,9 +239,16 @@ public class SwipeController: NSObject, SwipeControllerType {
         }
     }
     
-    public func showActions(animated: Bool, mode: SwipeActionsViewMode = .right) {
+    public func showActions(animated: Bool, mode: SwipeActionsViewMode = .right, completion:(()->Void)? = nil) {
+        
+        if actionButtons == nil || actionButtons?.count == 0 {
+            configureActionButtons()
+            actionsContainerView.layoutIfNeeded()
+        }
         var cvFrame = swipeView.frame
         actionsProvider?.actionsState = mode
+        
+        
         let width = swipeActionsViewMode == .left ? actionsContainerView.frame.size.width : -actionsContainerView.frame.size.width
         cvFrame.origin.x = width
         UIView.animate(
@@ -249,6 +256,10 @@ public class SwipeController: NSObject, SwipeControllerType {
         delay: 0.0,
         animations: { [weak self] in
             self?.swipeView.frame = cvFrame
+        },
+        completion: { finished in
+            guard let completionHandler = completion else { return }
+            completionHandler()
         })
     }
     
