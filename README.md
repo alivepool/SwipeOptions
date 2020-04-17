@@ -14,6 +14,7 @@ A UI control to add functionality for showing options on CollectionViewCell on s
 
 > The Sample app and Framework is tested only on simulator as a real device was not available for testing. Not tested with lower deployment target version.
 
+> Have added hint swipe implementation, but not working as expected. Needs more debugging.
 
 ## Screenshots
 
