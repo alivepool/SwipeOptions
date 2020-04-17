@@ -40,3 +40,13 @@ extension UIStackView {
         removedSubviews.forEach({ $0.removeFromSuperview() })
     }
 }
+
+extension UICollectionView {
+    var swipeCells: [SwipeCollectionViewCell] {
+        return visibleCells.compactMap({ $0 as? SwipeCollectionViewCell })
+    }
+    
+    func hideSwipeCell() {
+        swipeCells.forEach { $0.hideSwipableCellActions(animated: true) }
+    }
+}

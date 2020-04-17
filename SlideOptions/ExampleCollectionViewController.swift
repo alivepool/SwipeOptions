@@ -60,19 +60,19 @@ extension ExampleCollectionViewController: SwipeCollectionViewCellDelegate {
         actionConfigOne.handler = {[weak self] configuration, indexPath in
             self?.oneTapped()
         }
-        actionConfigOne.title = "One"
+        actionConfigOne.title = "Option One"
         
         var actionConfigTwo = SwipeActionConfiguration()
         actionConfigTwo.handler = {[weak self] configuration, indexPath in
             self?.twoTapped()
         }
-        actionConfigTwo.title = "Two"
+        actionConfigTwo.title = "Option Two"
         
         var actionConfigThree = SwipeActionConfiguration()
         actionConfigThree.handler = {[weak self] configuration, indexPath in
             self?.threeTapped()
         }
-        actionConfigThree.title = "Three"
+        actionConfigThree.title = "Option Three"
         
         return [actionConfigOne, actionConfigTwo, actionConfigThree]
     }

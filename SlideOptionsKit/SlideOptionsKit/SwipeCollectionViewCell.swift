@@ -20,6 +20,8 @@ open class SwipeCollectionViewCell: UICollectionViewCell {
     public var indexPath: IndexPath?
     public weak var actionsProvider: SwipeCollectionViewCellDelegate?
     
+    public var actionsState: SwipeActionsViewMode = .none
+    
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
         configureCell()
@@ -34,6 +36,10 @@ open class SwipeCollectionViewCell: UICollectionViewCell {
         swipeController = SwipeController(containerView: self, swipeView: contentView)
         swipeController?.actionsProvider = self
     }
+    
+    public func hideSwipableCellActions(animated: Bool) {
+        swipeController?.hideActions(animated: animated)
+    }
 }
 
 extension SwipeCollectionViewCell: SwipeActionsProvider {
@@ -47,5 +53,22 @@ extension SwipeCollectionViewCell: SwipeActionsProvider {
     public func actionHandler(configuration: SwipeActionConfiguration) {
         guard let indexPath = indexPath else { return }
         configuration.handler?(configuration, indexPath)
+    }
+}
+
+extension SwipeCollectionViewCell {
+    override open func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        guard let superview = superview else { return false }
+        
+        let point = convert(point, to: superview)
+        
+        for cell in collectionView?.swipeCells ?? [] {
+            if (cell.actionsState == .left || cell.actionsState == .right) && !cell.frame.contains(point) {
+                collectionView?.hideSwipeCell()
+                return false
+            }
+        }
+        
+        return frame.contains(point)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  ListCollectionViewController.swift
+//  ListTypesViewController.swift
 //  SlideOptions
 //
 //  Created by Ameya on 12/04/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListCollectionViewController: UIViewController {
+class ListTypesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

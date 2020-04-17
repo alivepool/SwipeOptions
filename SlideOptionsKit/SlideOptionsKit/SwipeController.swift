@@ -8,11 +8,7 @@
 
 import UIKit
 
-public enum OptionsSide {
-    case left, right
-}
-
-private enum SwipeActionsViewMode {
+public enum SwipeActionsViewMode {
     case none, left, right
 }
 
@@ -32,6 +28,8 @@ public struct SwipeActionConfiguration {
 }
 
 public protocol SwipeActionsProvider: AnyObject {
+    var actionsState: SwipeActionsViewMode { get set }
+    
     func swipeConfiguration() -> [SwipeActionConfiguration]?
     func actionHandler(configuration: SwipeActionConfiguration)
 }
@@ -43,12 +41,12 @@ public protocol SwipeControllerType {
     
     init(containerView: UIView, swipeView: UIView)
     
-    func showActions(_ mode: OptionsSide?)
-    func hideActions()
+    func showActions(animated: Bool, mode: SwipeActionsViewMode)
+    func hideActions(animated: Bool)
     
 }
 
-public class SwipeController: SwipeControllerType {
+public class SwipeController: NSObject, SwipeControllerType {
     
     private (set) public var containerView: UIView
     private (set) public var swipeView: UIView
@@ -71,9 +69,22 @@ public class SwipeController: SwipeControllerType {
     private var actionButtons: [UIButton]?
     private var actionConfigurations: [SwipeActionConfiguration]?
     
+    lazy var panGestureRecognizer: UIPanGestureRecognizer = {
+        let gesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognizer(gestureRecognizer:)))
+        gesture.delegate = self
+        return gesture
+    }()
+    
+    lazy var tapGestureRecognizer: UITapGestureRecognizer = {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognizer(gestureRecognizer:)))
+        gesture.delegate = self
+        return gesture
+    }()
+    
     required public init(containerView: UIView, swipeView: UIView) {
         self.containerView = containerView
         self.swipeView = swipeView
+        super.init()
         configureUI()
         setupViewConstraints()
         setupGestureRecognizers()
@@ -115,8 +126,8 @@ public class SwipeController: SwipeControllerType {
     }
     
     private func setupGestureRecognizers() {
-        containerView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognizer(gestureRecognizer:))))
-        containerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognizer(gestureRecognizer:))))
+        containerView.addGestureRecognizer(panGestureRecognizer)
+        containerView.addGestureRecognizer(tapGestureRecognizer)
     }
     
     private func configureActionButtons() {
@@ -137,6 +148,7 @@ public class SwipeController: SwipeControllerType {
             let button = UIButton(type: .custom)
             button.setTitle(config.title, for: .normal)
             button.setTitleColor(.black, for: .normal)
+            button.contentHorizontalAlignment = .leading
             button.backgroundColor = config.backgroundColor
             if let image = config.image {
                 button.leftImage(image: image, renderMode: .automatic)
@@ -205,41 +217,11 @@ public class SwipeController: SwipeControllerType {
             
             
         case .ended, .cancelled, .failed:
-            
-            var cvFrame = swipeView.frame
             if abs(swipeView.frame.origin.x) < actionsContainerView.frame.size.width/2.5 {
-                cvFrame.origin.x = orignalContentLocationX
-                swipeActionsViewMode = .none
-                UIView.animate(withDuration: 0.18) {
-                    
-                    
-                }
-                
-                UIView.animate(
-                withDuration: 0.18,
-                delay: 0.0,
-                options: .curveEaseInOut,
-                animations: { [weak self] in
-                    self?.swipeView.frame = cvFrame
-                    
-                },
-                completion: { [weak self] finished in
-                    self?.actionsStackView.removeAllArrangedSubviews()
-                    self?.actionConfigurations?.removeAll()
-                    self?.actionButtons?.removeAll()
-                })
+                hideActions(animated: true)
             }
             else {
-                let width = swipeActionsViewMode == .left ? actionsContainerView.frame.size.width : -actionsContainerView.frame.size.width
-                cvFrame.origin.x = width
-                UIView.animate(
-                withDuration: 0.18,
-                delay: 0.0,
-                options: .curveEaseInOut,
-                animations: { [weak self] in
-                    self?.swipeView.frame = cvFrame
-                    
-                })
+                showActions(animated: true, mode: swipeActionsViewMode)
             }
             
         default:
@@ -257,12 +239,56 @@ public class SwipeController: SwipeControllerType {
         }
     }
     
-    public func showActions(_ mode: OptionsSide? = .right) {
-        
+    public func showActions(animated: Bool, mode: SwipeActionsViewMode = .right) {
+        var cvFrame = swipeView.frame
+        actionsProvider?.actionsState = mode
+        let width = swipeActionsViewMode == .left ? actionsContainerView.frame.size.width : -actionsContainerView.frame.size.width
+        cvFrame.origin.x = width
+        UIView.animate(
+        withDuration: 0.18,
+        delay: 0.0,
+        animations: { [weak self] in
+            self?.swipeView.frame = cvFrame
+        })
     }
     
-    public func hideActions() {
+    public func hideActions(animated: Bool) {
+        var cvFrame = swipeView.frame
+        cvFrame.origin.x = orignalContentLocationX
+        swipeActionsViewMode = .none
+        actionsProvider?.actionsState = swipeActionsViewMode
+        let animationDuration = animated ? 0.18 : 0
         
+        UIView.animate(
+        withDuration: animationDuration,
+        delay: 0.0,
+        animations: { [weak self] in
+            self?.swipeView.frame = cvFrame
+            
+        },
+        completion: { [weak self] finished in
+            self?.resetActionsView()
+        })
     }
     
+    private func resetActionsView() {
+        self.actionsStackView.removeAllArrangedSubviews()
+        self.actionConfigurations?.removeAll()
+        self.actionButtons?.removeAll()
+    }
+    
+}
+
+extension SwipeController: UIGestureRecognizerDelegate {
+    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        
+        if gestureRecognizer == panGestureRecognizer,
+            let view = gestureRecognizer.view,
+            let gestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer {
+            let translation = gestureRecognizer.translation(in: view)
+            return abs(translation.y) <= abs(translation.x)
+        }
+        
+        return true
+    }
 }
