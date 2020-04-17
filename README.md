@@ -18,12 +18,12 @@ A UI control to add functionality for showing options on CollectionViewCell on s
 ## Screenshots
 
 ### Screen to list the available examples:
-![alt text](images/list_type.png)
+![alt text](Images/list_type.png)
 
 ### CollectionView example screen and options:
-![alt text](images/collection_view.png)
-![alt text](images/left_options_collection_view.png)
-![alt text](images/right_options_collection_view.png)
+![alt text](Images/collection_view.png)
+![alt text](Images/left_options_collection_view.png)
+![alt text](Images/right_options_collection_view.png)
 
 ## Suggested improvements
 * **More UI configuration options.**
