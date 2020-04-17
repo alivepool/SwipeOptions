@@ -17,6 +17,7 @@ class ExampleCollectionViewCell: SwipeCollectionViewCell {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        clipsToBounds = false
     }
     
 }

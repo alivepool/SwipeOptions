@@ -19,6 +19,10 @@
 		9D622CA62445B44800253686 /* ExampleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D622CA52445B44800253686 /* ExampleCollectionViewCell.swift */; };
 		9D7F474224495E4C00254FF1 /* SwipeOptionsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D7F473F24495E3700254FF1 /* SwipeOptionsKit.framework */; };
 		9D7F474324495E4C00254FF1 /* SwipeOptionsKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D7F473F24495E3700254FF1 /* SwipeOptionsKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9D7F475024496E9B00254FF1 /* right_options_collection_view.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D7F474C24496E9B00254FF1 /* right_options_collection_view.png */; };
+		9D7F475124496E9B00254FF1 /* collection_view.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D7F474D24496E9B00254FF1 /* collection_view.png */; };
+		9D7F475224496E9B00254FF1 /* left_options_collection_view.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D7F474E24496E9B00254FF1 /* left_options_collection_view.png */; };
+		9D7F475324496E9B00254FF1 /* list_type.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D7F474F24496E9B00254FF1 /* list_type.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +95,10 @@
 		9D622C96244310AE00253686 /* SwipeOptionsKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwipeOptionsKit.xcodeproj; path = SwipeOptionsKit/SwipeOptionsKit.xcodeproj; sourceTree = "<group>"; };
 		9D622CA32445AF7B00253686 /* ExampleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleCollectionViewController.swift; sourceTree = "<group>"; };
 		9D622CA52445B44800253686 /* ExampleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleCollectionViewCell.swift; sourceTree = "<group>"; };
+		9D7F474C24496E9B00254FF1 /* right_options_collection_view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right_options_collection_view.png; sourceTree = "<group>"; };
+		9D7F474D24496E9B00254FF1 /* collection_view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = collection_view.png; sourceTree = "<group>"; };
+		9D7F474E24496E9B00254FF1 /* left_options_collection_view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left_options_collection_view.png; sourceTree = "<group>"; };
+		9D7F474F24496E9B00254FF1 /* list_type.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list_type.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +136,7 @@
 				9D622C402443107700253686 /* Products */,
 				9D622C96244310AE00253686 /* SwipeOptionsKit.xcodeproj */,
 				9D622C9F244310DD00253686 /* Frameworks */,
+				9D7F474A24496E3000254FF1 /* Images */,
 			);
 			sourceTree = "<group>";
 		};
@@ -189,6 +198,17 @@
 				9D7F474124495E3700254FF1 /* SwipeOptionsKitTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9D7F474A24496E3000254FF1 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				9D7F474D24496E9B00254FF1 /* collection_view.png */,
+				9D7F474E24496E9B00254FF1 /* left_options_collection_view.png */,
+				9D7F474F24496E9B00254FF1 /* list_type.png */,
+				9D7F474C24496E9B00254FF1 /* right_options_collection_view.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,7 +342,11 @@
 			files = (
 				9D622C4F2443107A00253686 /* LaunchScreen.storyboard in Resources */,
 				9D622C4C2443107A00253686 /* Assets.xcassets in Resources */,
+				9D7F475024496E9B00254FF1 /* right_options_collection_view.png in Resources */,
+				9D7F475324496E9B00254FF1 /* list_type.png in Resources */,
 				9D622C4A2443107700253686 /* Main.storyboard in Resources */,
+				9D7F475224496E9B00254FF1 /* left_options_collection_view.png in Resources */,
+				9D7F475124496E9B00254FF1 /* collection_view.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
